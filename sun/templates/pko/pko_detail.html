@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block content %}
+{% block title_block %}{{ object.title }}{% endblock %}
+
+<dl class="row">
+  <dt class="col-sm-4">Дата создания</dt>
+  <dd class="col-sm-8">{{ object.created_date|date }}</dd>
+
+  <dt class="col-sm-4">Автор</dt>
+  <dd class="col-sm-8">{{ object.autor.name }}</dd>
+
+  <dt class="col-sm-4">Участок</dt>
+  <dd class="col-sm-8">{{ object.home }}</dd>
+
+  <dt class="col-sm-4">Месяц</dt>
+  <dd class="col-sm-8">{{ object.month }}</dd>
+
+  <dt class="col-sm-4">Год</dt>
+  <dd class="col-sm-8">{{ object.year }}</dd>
+
+  <dt class="col-sm-4">Сумма за электричество</dt>
+  <dd class="col-sm-8">{{ object.summ_e }}</dd>
+
+  <dt class="col-sm-4">Сумма за воду</dt>
+  <dd class="col-sm-8">{{ object.summ_w }}</dd>
+
+  <dt class="col-sm-4">Сумма в фонд поселка</dt>
+  <dd class="col-sm-8">{{ object.summ_fond }}</dd>
+
+  <dt class="col-sm-4">Комментарий</dt>
+  <dd class="col-sm-8">{{ object.comment }}</dd>
+
+</dl>
+
+<a class="btn btn-outline-primary" href="{% url 'pko_list' %}">Вернуться к списку ордеров</a>
+
+{% endblock content %}
