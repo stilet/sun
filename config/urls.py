@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'', include('counter.urls')),
     url(r'', include('pko.urls')),
     url(r'', include('rko.urls')),
+    url(r'', include('water.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -40,10 +40,10 @@
               <a class="nav-link" href="{% url 'home' %}">Главная <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">Помощь</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="{% url 'counter_e_list' %}"> Счетчики электричества </a>
+           </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'counter_w_list' %}"> Счетчики воды </a>
            </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'pko_list' %}"> Оплата за комуналку </a>
@@ -51,6 +51,9 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'rko_list' %}"> Список расходов из фонда </a>
            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">Помощь</a>
+            </li>
              {% if request.user.is_authenticated %}
            <!-- <li class="nav-item">
               <a class="nav-link" href="{% url 'about' %}">Показания счетчиков по всему поселку</a>

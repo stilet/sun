@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<h2>Новое показание счетчика воды</h2>
+
+<form method="POST" role="form" class="form-horizontal">
+<div class="form-group">
+{% csrf_token %}
+    {{ form|crispy }}
+
+
+    <button type="submit" class="btn btn-success">Сохранить показание</button>
+ </div>
+
+</form>
+
+{% endblock %}
