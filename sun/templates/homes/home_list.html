@@ -2,11 +2,10 @@
 
 
 <div class="container">
+  {% load static %}
+  <img src= "{% static 'images/153329.png' %}" class="img-fluid" alt="Responsive image">
     {% if user.is_authenticated %}
-    <h2>Список расходов из фонда</h2>
-    <div class="mb-4">
-        <a href="{% url 'rko_new' %}"  class="btn btn-outline-primary">Добавить кассовый ордер</a>
-    </div>
+    <h4>Список участков</h4>
 
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
@@ -14,19 +13,21 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th>Автор</th>
-                        <th>Дата создания</th>
-                        <th>Месяц</th>
-                        <th>Год</th>
+                        <th>Владелец участка</th>
+                        <th>Номер участка</th>
+                        <th>Улица</th>
+                        <th>Номер дома</th>
+                        <th>Комментарий</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% for counter in rkos %}
+                    {% for counter in homes %}
                     <tr>
-                      <td data-label="Автор"><a href="{% url 'rko_detail' counter.pk %}">{{ counter.autor.name }}</a></td>
-                      <td data-label="Дата создания"><a href="{% url 'rko_detail' counter.pk %}">{{ counter.created_date }}</a></td>
-                      <td data-label="Месяц"><a href="{% url 'rko_detail' counter.pk %}">{{ counter.month }}</a></td>
-                      <td data-label="Год"><a href="{% url 'rko_detail' counter.pk %}">{{ counter.year }}</a></td>
+                        <td data-label="Владелец участка">{{ counter.owner.name }}</td>
+                        <td data-label="Номер участка">{{ counter.section }}</td>
+                        <td data-label="Улица">{{ counter.street }}</td>
+                        <td data-label="Номер дома">{{ counter.numhome }}</td>
+                        <td data-label="Комментарий">{{ counter.comment }}</td>
                     </tr>
                     {% endfor %}
 
@@ -37,9 +38,7 @@
         </div>
     </div>
 
-
     {% include 'includes/pagination.html' %}
-
 
 
     {% else %}
@@ -50,5 +49,6 @@
           </div>
     {% endif %}
 </div>
+
 
 {% endblock content %}

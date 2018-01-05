@@ -24,7 +24,7 @@
                     <tbody>
                     {% for counter in pkos %}
                     <tr>
-                        <td data-label="Автор"><a href="{% url 'pko_detail' counter.pk %}">{{ counter.autor }}</a></td>
+                        <td data-label="Автор"><a href="{% url 'pko_detail' counter.pk %}">{{ counter.autor.name }}</a></td>
                         <td data-label="Дата создания"><a href="{% url 'pko_detail' counter.pk %}">{{ counter.created_date }}</a></td>
                         <td data-label="Месяц"><a href="{% url 'pko_detail' counter.pk %}">{{ counter.month }}</a></td>
                         <td data-label="Год"><a href="{% url 'pko_detail' counter.pk %}">{{ counter.year }}</a></td>

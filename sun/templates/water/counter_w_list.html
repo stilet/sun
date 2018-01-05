@@ -23,7 +23,7 @@
                     <tbody>
                     {% for counter in counters_w %}
                     <tr>
-                      <td data-label="Автор"><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.autor }}</a></td>
+                      <td data-label="Автор"><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.autor.name }}</a></td>
                         <td data-label="Дата создания"><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.created_date }}</a></td>
                         <td data-label="Месяц"><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.month }}</a></td>
                         <td data-label="Год"><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.year }}</a></td>
