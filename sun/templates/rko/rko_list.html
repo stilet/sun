@@ -3,9 +3,9 @@
 
 <div class="container">
     {% if user.is_authenticated %}
-    <h2>Список оплат за коммуналку</h2>
+    <h2>Список расходов из фонда</h2>
     <div class="mb-4">
-        <a href="{% url 'pko_new' %}"  class="btn btn-outline-primary">Добавить кассовый ордер</a>
+        <a href="{% url 'rko_new' %}"  class="btn btn-outline-primary">Добавить кассовый ордер</a>
     </div>
 
     <div class="row">
@@ -18,17 +18,15 @@
                         <th>Дата создания</th>
                         <th>Месяц</th>
                         <th>Год</th>
-                        <th>Участок</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% for counter in pkos %}
+                    {% for counter in rkos %}
                     <tr>
-                        <td data-label="Автор"><a href="{% url 'pko_detail' counter.pk %}">{{ counter.autor }}</a></td>
-                        <td data-label="Дата создания"><a href="{% url 'pko_detail' counter.pk %}">{{ counter.created_date }}</a></td>
-                        <td data-label="Месяц"><a href="{% url 'pko_detail' counter.pk %}">{{ counter.month }}</a></td>
-                        <td data-label="Год"><a href="{% url 'pko_detail' counter.pk %}">{{ counter.year }}</a></td>
-                        <td data-label="Участок"><a href="{% url 'pko_detail' counter.pk %}">{{ counter.home }}</a></td>
+                      <td data-label="Автор"><a href="{% url 'rko_detail' counter.pk %}">{{ counter.autor }}</a></td>
+                      <td data-label="Дата создания"><a href="{% url 'rko_detail' counter.pk %}">{{ counter.created_date }}</a></td>
+                      <td data-label="Месяц"><a href="{% url 'rko_detail' counter.pk %}">{{ counter.month }}</a></td>
+                      <td data-label="Год"><a href="{% url 'rko_detail' counter.pk %}">{{ counter.year }}</a></td>
                     </tr>
                     {% endfor %}
 
@@ -39,7 +37,9 @@
         </div>
     </div>
 
+
     {% include 'includes/pagination.html' %}
+
 
 
     {% else %}
