@@ -12,4 +12,6 @@ class PkoForm(forms.ModelForm):
             'summ_e',
             'summ_w',
             'summ_fond',
-            'home',)
+            'home',
+            'counter_e',
+            'counter_w',)

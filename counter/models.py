@@ -27,8 +27,7 @@ class CounterE(CounterBase):
     home = models.ForeignKey(Homes, blank=False, verbose_name='Участок')
 
     def __str__(self):
-        return str(self.created_date
-                   ) + ' ' + str(self.home) + ' ' + self.month + ' ' + self.year + ' ' + self.comment
+        return '№ ' + str(self.id) + ' от ' + str(self.created_date) + ' за ' + self.month + ' ' + self.year
 
     def publish(self):
         self.save()

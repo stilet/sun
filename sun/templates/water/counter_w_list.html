@@ -13,21 +13,23 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th>Автор</th>
+                        <th>№</th>
                         <th>Дата создания</th>
+                        <th>Участок</th>
+                        <th>Автор</th>
                         <th>Месяц</th>
                         <th>Год</th>
-                        <th>Участок</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% for counter in counters_w %}
                     <tr>
+                      <td data-label="№ "><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.id }}</a></td>
+                      <td data-label="Дата создания"><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.created_date }}</a></td>
+                      <td data-label="Участок"><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.home }}</a></td>
                       <td data-label="Автор"><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.autor.name }}</a></td>
-                        <td data-label="Дата создания"><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.created_date }}</a></td>
-                        <td data-label="Месяц"><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.month }}</a></td>
-                        <td data-label="Год"><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.year }}</a></td>
-                        <td data-label="Год"><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.home }}</a></td>
+                      <td data-label="Месяц"><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.month }}</a></td>
+                      <td data-label="Год"><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.year }}</a></td>
                     </tr>
                     {% endfor %}
 
