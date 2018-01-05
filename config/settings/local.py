@@ -29,6 +29,12 @@ EMAIL_PORT = 1025
 
 EMAIL_HOST = env('EMAIL_HOST', default='localhost')
 
+DEFAULT_FROM_EMAIL = 'sun@garantum.ru'
+
+# Subject-line prefix for email messages send with django.core.mail.mail_admins
+# or ...mail_managers.  Make sure to include the trailing space.
+EMAIL_SUBJECT_PREFIX = '[Администратор] '
+
 
 
 # CACHING
