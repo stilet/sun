@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+    {% if user.is_authenticated %}
+    <h2>Список счетчиков воды</h2>
+    <div class="mb-4">
+        <a href="{% url 'counter_w_new' %}"  class="btn btn-outline-primary">Добавить показание счетчика</a>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Дата создания</th>
+                        <th>Участок</th>
+                        <th>Автор</th>
+                        <th>Месяц</th>
+                        <th>Год</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for counter in counters_w %}
+                    <tr>
+                      <td data-label="№ "><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.id }}</a></td>
+                      <td data-label="Дата создания"><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.created_date }}</a></td>
+                      <td data-label="Участок"><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.home }}</a></td>
+                      <td data-label="Автор"><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.autor.name }}</a></td>
+                      <td data-label="Месяц"><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.month }}</a></td>
+                      <td data-label="Год"><a href="{% url 'counter_w_detail' counter.pk %}">{{ counter.year }}</a></td>
+                    </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+  {% include 'includes/pagination.html' %}
+
+
+    {% else %}
+    <div class="alert alert-success" role="alert">
+            <p>Для просмотра списка счетчиков вы должны быть зарегистрированы на сайте</p>
+            <hr>
+            <p class="mb-0">Вы можете войти на сайт с помощью ссылки вверху справа</p>
+          </div>
+    {% endif %}
+</div>
+
+{% endblock content %}
