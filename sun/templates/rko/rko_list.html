@@ -4,9 +4,6 @@
 <div class="container">
     {% if user.is_authenticated %}
     <h2>Список расходов из фонда</h2>
-    <div class="mb-4">
-        <a href="{% url 'rko_new' %}"  class="btn btn-outline-primary">Добавить кассовый ордер</a>
-    </div>
 
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
@@ -14,6 +11,7 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
+                        <th>№</th>
                         <th>Автор</th>
                         <th>Дата создания</th>
                         <th>Месяц</th>
@@ -23,6 +21,7 @@
                     <tbody>
                     {% for counter in rkos %}
                     <tr>
+                      <td data-label="№"><a href="{% url 'rko_detail' counter.pk %}">{{ counter.id }}</a></td>
                       <td data-label="Автор"><a href="{% url 'rko_detail' counter.pk %}">{{ counter.autor.name }}</a></td>
                       <td data-label="Дата создания"><a href="{% url 'rko_detail' counter.pk %}">{{ counter.created_date }}</a></td>
                       <td data-label="Месяц"><a href="{% url 'rko_detail' counter.pk %}">{{ counter.month }}</a></td>
@@ -44,7 +43,7 @@
 
     {% else %}
     <div class="alert alert-success" role="alert">
-            <p>Для просмотра списка кассовых ордеров вы должны быть зарегистрированы на сайте</p>
+            <p>Для просмотра списка расходов вы должны быть зарегистрированы на сайте</p>
             <hr>
             <p class="mb-0">Вы можете войти на сайт с помощью ссылки вверху справа</p>
           </div>
